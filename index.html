@@ -75,5 +75,41 @@
         };
     </script>
     <script type='text/javascript' src='https://perfaware26-dev-ed.develop.my.site.com/ESWWestMarineChannel1785312396016/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+    //Passing Web Context to Prechat - BEGIN
+    var sFirstName = "John";
+    var sLastName = "Doe";
+    var sSubject = "Test Subject";
+    var sCustomerID = "12345678";
+    var sShoppingCartValue = "1000";
+        
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        //log event
+        console.log("onEmbeddedMessagingReady event triggered");
+        
+        //set visible prechat field
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            // List the pre-chat field names with the value and whether
+            // it's editable in the pre-chat form.
+            "_firstName": {
+              "value": sFirstName,
+              "isEditableByEndUser": false
+            },
+            "_lastName": {
+              "value": sLastName,
+              "isEditableByEndUser": false
+            },
+            "_subject": {
+              "value": "test subject",
+              "isEditableByEndUser": true
+            }
+        });
+      
+        //Set invisible prechat field
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "Shopping_Cart_Value" : sShoppingCartValue,
+            "Customer_ID" : sCustomerID
+        });
+    });
+    //Passing Web Context to Prechat - END
 </body>
 </html>
