@@ -59,34 +59,7 @@
         var sCustomerID = "12345678";
         var sShoppingCartValue = "1000";
 
-        // 2. Register event listener BEFORE initializing the messaging service
-        window.addEventListener("onEmbeddedMessagingReady", e => {
-            console.log("onEmbeddedMessagingReady event triggered");
-
-            // Set visible prechat fields
-            embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                "_firstName": {
-                    "value": sFirstName,
-                    "isEditableByEndUser": false
-                },
-                "_lastName": {
-                    "value": sLastName,
-                    "isEditableByEndUser": false
-                },
-                "_subject": {
-                    "value": sSubject,
-                    "isEditableByEndUser": true
-                }
-            });
-
-            // Set hidden prechat fields
-            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                "Shopping_Cart_Value": sShoppingCartValue,
-                "Customer_ID": sCustomerID
-            });
-        });
-
-        // 3. Define the initialization function
+        // 1. Define the initialization function
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US';
@@ -102,6 +75,16 @@
                 console.error('Error loading Embedded Messaging: ', err);
             }
         };
+        // 2. Register event listener BEFORE initializing the messaging service
+        window.addEventListener("onEmbeddedMessagingReady", e => {
+            console.log("onEmbeddedMessagingReady event triggered");
+
+            // Set hidden prechat fields
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                "Shopping_Cart_Value": sShoppingCartValue,
+                "Customer_ID": sCustomerID
+            });
+        });
     </script>
     <script type='text/javascript' src='https://perfaware26-dev-ed.develop.my.site.com/ESWWestMarineChannel1785312396016/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
