@@ -30,18 +30,13 @@
 
         <!-- Buttons -->
         <div style="margin-top: 30px;">
-            <button
-                style="padding: 10px 20px; margin: 5px; border: none; background-color: #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer;">Google
-                Search</button>
-            <button
-                style="padding: 10px 20px; margin: 5px; border: none; background-color: #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer;">I'm
-                Feeling Lucky</button>
+            <button style="padding: 10px 20px; margin: 5px; border: none; background-color: #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer;">Google Search</button>
+            <button style="padding: 10px 20px; margin: 5px; border: none; background-color: #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer;">I'm Feeling Lucky</button>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer
-        style="position: fixed; bottom: 0; width: 100%; background-color: #f2f2f2; padding: 10px 0; font-size: 14px; color: #5f6368;">
+    <footer style="position: fixed; bottom: 0; width: 100%; background-color: #f2f2f2; padding: 10px 0; font-size: 14px; color: #5f6368;">
         <div style="display: flex; justify-content: space-between; max-width: 900px; margin: auto;">
             <div>
                 <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">About (101)</a>
@@ -57,10 +52,44 @@
     </footer>
 
     <script type='text/javascript'>
+        // 1. Declare variables first
+        var sFirstName = "John";
+        var sLastName = "Doe";
+        var sSubject = "Test Subject";
+        var sCustomerID = "12345678";
+        var sShoppingCartValue = "1000";
+
+        // 2. Register event listener BEFORE initializing the messaging service
+        window.addEventListener("onEmbeddedMessagingReady", e => {
+            console.log("onEmbeddedMessagingReady event triggered");
+
+            // Set visible prechat fields
+            embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                "_firstName": {
+                    "value": sFirstName,
+                    "isEditableByEndUser": false
+                },
+                "_lastName": {
+                    "value": sLastName,
+                    "isEditableByEndUser": false
+                },
+                "_subject": {
+                    "value": sSubject,
+                    "isEditableByEndUser": true
+                }
+            });
+
+            // Set hidden prechat fields
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                "Shopping_Cart_Value": sShoppingCartValue,
+                "Customer_ID": sCustomerID
+            });
+        });
+
+        // 3. Define the initialization function
         function initEmbeddedMessaging() {
             try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
+                embeddedservice_bootstrap.settings.language = 'en_US';
                 embeddedservice_bootstrap.init(
                     '00DdM000012E4Jp',
                     'West_Marine_Channel',
@@ -73,44 +102,8 @@
                 console.error('Error loading Embedded Messaging: ', err);
             }
         };
-        //Passing Web Context to Prechat - BEGIN
-    var sFirstName = "John";
-    var sLastName = "Doe";
-    var sSubject = "Test Subject";
-    var sCustomerID = "12345678";
-    var sShoppingCartValue = "1000";
-        
-    window.addEventListener("onEmbeddedMessagingReady", e => {
-        //log event
-        console.log("onEmbeddedMessagingReady event triggered");
-        
-        //set visible prechat field
-        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-            // List the pre-chat field names with the value and whether
-            // it's editable in the pre-chat form.
-            "_firstName": {
-              "value": sFirstName,
-              "isEditableByEndUser": false
-            },
-            "_lastName": {
-              "value": sLastName,
-              "isEditableByEndUser": false
-            },
-            "_subject": {
-              "value": "test subject",
-              "isEditableByEndUser": true
-            }
-        });
-      
-        //Set invisible prechat field
-        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-            "Shopping_Cart_Value" : sShoppingCartValue,
-            "Customer_ID" : sCustomerID
-        });
-    });
-    //Passing Web Context to Prechat - END
     </script>
     <script type='text/javascript' src='https://perfaware26-dev-ed.develop.my.site.com/ESWWestMarineChannel1785312396016/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-    
+
 </body>
 </html>
