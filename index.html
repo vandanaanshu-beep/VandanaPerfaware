@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #fff; text-align: center;">
+
+    <!-- Header Links -->
+    <div style="text-align: right; padding: 10px 20px;">
+        <a href="#" style="margin: 0 10px; text-decoration: none; color: #5f6368; font-size: 14px;">Gmail</a>
+        <a href="#" style="margin: 0 10px; text-decoration: none; color: #5f6368; font-size: 14px;">Images</a>
+    </div>
+
+    <!-- Logo -->
+    <div style="margin-top: 100px;">
+        <h1 style="font-size: 80px; font-weight: normal; margin-bottom: 30px;">
+            <span style="color: #4285F4;">G</span>
+            <span style="color: #EA4335;">o</span>
+            <span style="color: #FBBC05;">o</span>
+            <span style="color: #4285F4;">g</span>
+            <span style="color: #34A853;">l</span>
+            <span style="color: #EA4335;">e</span>
+        </h1>
+
+        <!-- Search Box -->
+        <input type="text" placeholder="Search Google or type a URL"
+            style="width: 60%; max-width: 600px; padding: 12px 20px; border: 1px solid #dfe1e5; border-radius: 24px; font-size: 16px; outline: none; box-shadow: none;" />
+
+        <!-- Buttons -->
+        <div style="margin-top: 30px;">
+            <button
+                style="padding: 10px 20px; margin: 5px; border: none; background-color: #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer;">Google
+                Search</button>
+            <button
+                style="padding: 10px 20px; margin: 5px; border: none; background-color: #f8f9fa; border-radius: 4px; font-size: 14px; cursor: pointer;">I'm
+                Feeling Lucky</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+        style="position: fixed; bottom: 0; width: 100%; background-color: #f2f2f2; padding: 10px 0; font-size: 14px; color: #5f6368;">
+        <div style="display: flex; justify-content: space-between; max-width: 900px; margin: auto;">
+            <div>
+                <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">About (101)</a>
+                <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">Advertising</a>
+                <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">Business</a>
+            </div>
+            <div>
+                <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">Privacy</a>
+                <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">Terms</a>
+                <a href="#" style="margin: 0 15px; color: #5f6368; text-decoration: none;">Settings</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+                embeddedservice_bootstrap.init(
+                    '00DdM000012E4Jp',
+                    'West_Marine_Channel',
+                    'https://perfaware26-dev-ed.develop.my.site.com/ESWWestMarineChannel1785312396016',
+                    {
+                        scrt2URL: 'https://perfaware26-dev-ed.develop.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
+    <script type='text/javascript' src='https://perfaware26-dev-ed.develop.my.site.com/ESWWestMarineChannel1785312396016/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+</html>
